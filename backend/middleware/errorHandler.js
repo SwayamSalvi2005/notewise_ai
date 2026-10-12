@@ -28,11 +28,6 @@ const errorHandler = (err, req, res, next) => {
         message    = "Duplicate data already exists.";
     }
 
-    // ── MongoDB connection failure ─────────────────────────────────────────────
-    if (err.name === "MongoNetworkError") {
-        message    = "Server down please try again later";
-        statusCode = 503;
-    }
 
     // ── AI errors (from AppError with custom type field) ──────────────────────
     // "rateLimit" — Gemini API quota exceeded
